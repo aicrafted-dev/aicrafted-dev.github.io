@@ -1,0 +1,47 @@
+layout: default
+
+<article class="article">
+<header class="article-header">
+<a class="back-link" href="{{ '/' | relative_url }}">← 返回首页</a>
+
+<h1>{{ page.title | escape }}</h1>
+
+<div class="post-meta">
+  <time datetime="{{ page.date | date_to_xmlschema }}">
+    {{ page.date | date: "%Y-%m-%d" }}
+  </time>
+
+  {% for category in page.categories %}
+    <span class="category-label">{{ category | escape }}</span>
+  {% endfor %}
+</div>
+
+{% if page.tags.size > 0 %}
+  <div class="tag-list">
+    {% for tag in page.tags %}
+      <a class="tag" href="{{ '/tags/' | relative_url }}#{{ tag | slugify }}">
+        #{{ tag | escape }}
+      </a>
+    {% endfor %}
+  </div>
+{% endif %}
+
+
+</header>
+
+<div class="article-content">
+{{ content }}
+</div>
+
+<nav class="article-navigation">
+{% if page.previous %}
+<a href="{{ page.previous.url | relative_url }}">← {{ page.previous.title | escape }}</a>
+{% endif %}
+
+{% if page.next %}
+  <a href="{{ page.next.url | relative_url }}">{{ page.next.title | escape }} →</a>
+{% endif %}
+
+
+</nav>
+</article>
