@@ -1,0 +1,14 @@
+title: AICrafted 博客
+description: 记录技术、生活与思考
+lang: zh-CN
+timezone: Asia/Shanghai
+
+url: "https://aicrafted-dev.github.io"
+baseurl: ""
+
+markdown: kramdown
+highlighter: rouge
+permalink: /posts/:year/:month/:day/:title/
+
+kramdown:
+  input: GFM
