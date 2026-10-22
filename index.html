@@ -1,135 +1,66 @@
+---
+layout: default
+title: 首页
+---
 
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="记录生活、技术、阅读与成长的个人博客。">
-  <title>我的博客 · 记录与思考</title>
-  <style>
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      background: #fafaf9;
-      color: #292929;
-      font-family: -apple-system, BlinkMacSystemFont,
-        "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
-      line-height: 1.8;
-    }
-    a { color: inherit; text-decoration: none; }
-    a:hover { color: #2563eb; }
-    .wrap { max-width: 800px; margin: auto; padding: 0 24px; }
-    header { border-bottom: 1px solid #e8e8e7; }
-    nav {
-      min-height: 72px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-    }
-    .logo { font-size: 20px; font-weight: 750; }
-    .nav-links { display: flex; gap: 20px; color: #666; }
-    .hero { padding: 76px 0 48px; }
-    .tag {
-      color: #2563eb;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 2px;
-    }
-    h1 {
-      font-size: clamp(32px, 6vw, 46px);
-      line-height: 1.3;
-      letter-spacing: -1px;
-      margin: 12px 0;
-    }
-    .intro { color: #666; max-width: 560px; }
-    .section-title {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin: 22px 0 12px;
-    }
-    .section-title h2 { font-size: 21px; }
-    .post {
-      display: block;
-      padding: 22px 24px;
-      margin-bottom: 14px;
-      background: white;
-      border: 1px solid #eaeaea;
-      border-radius: 14px;
-      transition: border-color .2s, transform .2s;
-    }
-    .post:hover {
-      border-color: #93b4ff;
-      transform: translateY(-2px);
-    }
-    .meta { color: #888; font-size: 13px; }
-    .post h3 { font-size: 19px; margin: 7px 0; }
-    .post p { color: #666; margin: 0; font-size: 14px; }
-    .category { color: #2563eb; margin-right: 10px; }
-    footer {
-      margin-top: 64px;
-      padding: 24px 0 36px;
-      border-top: 1px solid #e8e8e7;
-      color: #888;
-      font-size: 13px;
-    }
-    @media (max-width: 480px) {
-      .wrap { padding: 0 18px; }
-      .hero { padding-top: 52px; }
-      .post { padding: 18px; }
-      .nav-links { gap: 12px; font-size: 14px; }
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <nav class="wrap">
-      <a class="logo" href="./">我的博客.</a>
-      <div class="nav-links">
-        <a href="./">首页</a>
-        <a href="posts/hello-world.html">文章</a>
-        <a href="about.html">关于</a>
-      </div>
-    </nav>
-  </header>
+<section class="hero">
+  <p class="eyebrow">PERSONAL JOURNAL</p>
+  <h1>记录值得记住的事。</h1>
+  <p>{{ site.description | escape }}</p>
+</section>
 
-  <main class="wrap">
-    <section class="hero">
-      <div class="tag">WELCOME TO MY SPACE</div>
-      <h1>你好，欢迎来到<br>我的小小世界。</h1>
-      <p class="intro">
-        这里记录我的学习、生活与思考。
-        慢慢积累，持续探索，希望文字能留下成长的痕迹。
-      </p>
-    </section>
+<section class="post-section">
+  <div class="section-heading">
+    <h2>最新文章</h2>
+    <span>共 {{ site.posts.size }} 篇</span>
+  </div>
 
-    <section>
-      <div class="section-title">
-        <h2>最新文章</h2>
-        <span class="meta">LATEST POSTS</span>
-      </div>
+  {% assign posts_by_date = site.posts | sort: "date" | reverse %}
 
-      <a class="post" href="posts/hello-world.html">
-        <div class="meta">
-          <span class="category">随笔</span>2026-10-20
-        </div>
-        <h3>我的第一篇博客：从这里开始</h3>
-        <p>记录搭建个人博客的过程，以及我为什么想开始写作。</p>
-      </a>
+  {% if posts_by_date.size > 0 %}
+    <div class="post-list">
+      {% for post in posts_by_date %}
+        <article class="post-card">
+          <div class="post-meta">
+            <time datetime="{{ post.date | date_to_xmlschema }}">
+              {{ post.date | date: "%Y-%m-%d" }}
+            </time>
 
-      <a class="post" href="posts/learning-notes.html">
-        <div class="meta">
-          <span class="category">学习</span>2026-10-20
-        </div>
-        <h3>建立自己的知识记录系统</h3>
-        <p>把学习中的想法整理下来，让知识能够持续积累。</p>
-      </a>
-    </section>
+            {% for category in post.categories %}
+              <span class="category-label">
+                {{ category | escape }}
+              </span>
+            {% endfor %}
+          </div>
 
-    <footer>
-      © 2026 我的博客 · 用心记录，慢慢成长。
-    </footer>
-  </main>
-</body>
-</html>
+          <h3>
+            <a href="{{ post.url | relative_url }}">
+              {{ post.title | escape }}
+            </a>
+          </h3>
+
+          <div class="post-excerpt">
+            {{ post.excerpt | strip_html | normalize_whitespace | truncate: 180 }}
+          </div>
+
+          {% if post.tags.size > 0 %}
+            <div class="tag-list">
+              {% for tag in post.tags %}
+                <a
+                  class="tag"
+                  href="{{ '/tags/' | relative_url }}#{{ tag | slugify }}">
+                  #{{ tag | escape }}
+                </a>
+              {% endfor %}
+            </div>
+          {% endif %}
+        </article>
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="empty-state">
+      <h3>第一篇文章，等你来写。</h3>
+      <p>在 _posts 文件夹中添加 Markdown 文章即可。</p>
+    </div>
+  {% endif %}
+</section>
