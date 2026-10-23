@@ -2,8 +2,6 @@
 layout: default title: 专栏 permalink: /columns/
 
  ---
-专栏
-
 这里整理我持续关注和深入探索的主题。
 
 AI 工具与实践
