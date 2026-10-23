@@ -95,9 +95,8 @@ a:hover { text-decoration: underline; }
 
 @media (max-width: 600px) { .container { width: calc(100% - 32px); }
 
-.header-inner { min-height: 68px; flex-wrap: wrap; padding: 14px 0; }                     
+.header-inner { min-height: 68px; flex-wrap: wrap; padding: 14px 0; }
 
 .site-header nav { gap: 14px; }
 
- /* 专栏下拉菜单 */ .nav-dropdown { 
 .hero { padding: 36px 0; } }
