@@ -19,11 +19,19 @@
 
  <nav>
 <a href="{{ '/' | relative_url }}">首页</a>
-<a href="{{ '/columns/' | relative_url }}">专栏</a>
-<a href="{{ '/about.html' | relative_url }}">关于</a>
-</nav>
+
+<div class="nav-dropdown">
+<a href="{{ '/columns/' | relative_url }}" class="dropdown-toggle">专栏 ▾</a>
+<div class="dropdown-menu">
+<a href="{{ '/columns/practice/' | relative_url }}">实践</a>
+<a href="{{ '/columns/reading/' | relative_url }}">阅读</a>
+<a href="{{ '/columns/reflections/' | relative_url }}">感悟</a>
+</div>
 </div>
 
+<a href="{{ '/about.html' | relative_url }}">关于</a>
+
+</nav>
 
 </header>
 
