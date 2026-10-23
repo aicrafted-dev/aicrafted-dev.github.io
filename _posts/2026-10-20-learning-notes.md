@@ -1,9 +1,12 @@
-layout: post title: "我的第二篇博客：心理学" date: 2026-10-20 18:00:00 +0800 categories:
-
-随笔 tags:
-心理学
-学习
-写作
+---
+layout: post 
+title: "我的第二篇博客：心理学" 
+date: 2026-10-20 18:00:00 +0800 
+categories:
+-随笔 
+tags:
+-心理学
+---
 
 你好，欢迎来到我的博客。
 
