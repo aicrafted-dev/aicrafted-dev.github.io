@@ -37,7 +37,7 @@ layout: default
 
 <nav class="article-navigation">
 {% if page.previous %}
-<a href="{{ page.previous.url | relative_url }}">← {{ page.previous.title | escape }}</a>
+<span class="tag">#{{ tag | escape }}</span>
 {% endif %}
 
 {% if page.next %}
