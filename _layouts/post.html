@@ -20,13 +20,12 @@ layout: default
 </div>
 
 {% if page.tags.size > 0 %}
-  <div class="tag-list">
-    {% for tag in page.tags %}
-      <a class="tag" href="{{ '/tags/' | relative_url }}#{{ tag | slugify }}">
-        #{{ tag | escape }}
-      </a>
-    {% endfor %}
-  </div>
+
+<div class="tag-list">
+{% for tag in page.tags %}
+<span class="tag">#{{ tag | escape }}</span>
+{% endfor %}
+</div>
 {% endif %}
 
 
