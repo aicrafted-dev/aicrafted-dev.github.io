@@ -2,11 +2,12 @@
 layout: post 
 title: "AI 时代，我能做些什么有趣又有价值的项目？" 
 date: 2026-10-24 18:00:00 +0800 
-categories: 随笔 
-tags:随笔
-项目探索
-创造力
-个人成长
+categories: 
+- 随笔 
+tags:
+- 项目探索
+- 创造力
+- 个人成长
 
 ---
 
