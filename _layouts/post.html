@@ -35,15 +35,27 @@ layout: default
 {{ content }}
 </div>
 
+
 <nav class="article-navigation">
-{% if page.previous %}
-<span class="tag">#{{ tag | escape }}</span>
-{% endif %}
+  <div class="article-nav-left">
+    {% if page.previous %}
+      <a href="{{ page.previous.url | relative_url }}">
+        ← 上一篇：{{ page.previous.title | escape }}
+      </a>
+    {% endif %}
+  </div>
 
-{% if page.next %}
-  <a href="{{ page.next.url | relative_url }}">{{ page.next.title | escape }} →</a>
-{% endif %}
+  <a class="article-nav-home" href="{{ '/' | relative_url }}">
+    回到首页
+  </a>
 
-
+  <div class="article-nav-right">
+    {% if page.next %}
+      <a href="{{ page.next.url | relative_url }}">
+        阅读下一篇：{{ page.next.title | escape }} →
+      </a>
+    {% endif %}
+  </div>
 </nav>
+
 </article>
