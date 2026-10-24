@@ -100,3 +100,59 @@ a:hover { text-decoration: underline; }
 .site-header nav { gap: 14px; }
 
 .hero { padding: 36px 0; } }
+
+/* 文章底部导航 */
+.article-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 48px;
+  padding-top: 20px;
+  border-top: 1px solid #e5e7eb;
+  font-size: 14px;
+}
+
+.article-nav-left,
+.article-nav-right {
+  flex: 1;
+  min-width: 0;
+}
+
+.article-nav-right {
+  text-align: right;
+}
+
+.article-nav-home {
+  flex-shrink: 0;
+  text-align: center;
+  color: #6b7280;
+}
+
+.article-navigation a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.article-navigation a:hover {
+  text-decoration: underline;
+}
+
+/* 手机端适配 */
+@media (max-width: 600px) {
+  .article-navigation {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .article-nav-left,
+  .article-nav-right {
+    flex: 1 1 40%;
+  }
+
+  .article-nav-home {
+    order: 3;
+    flex-basis: 100%;
+    padding-top: 8px;
+  }
+}
