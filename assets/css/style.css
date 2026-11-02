@@ -130,12 +130,21 @@ a:hover { text-decoration: underline; }
 }
 
 .article-navigation a {
-  color: #2563eb;
+  color: var(--accent);
   text-decoration: none;
+  transition: opacity 0.2s ease;
 }
 
 .article-navigation a:hover {
+  color: var(--accent);
+  opacity: 0.75;
   text-decoration: underline;
+}
+
+.article-nav-home {
+  flex-shrink: 0;
+  text-align: center;
+  color: var(--muted);
 }
 
 /* 手机端适配 */
