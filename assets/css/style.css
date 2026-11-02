@@ -129,24 +129,6 @@ a:hover { text-decoration: underline; }
   color: #6b7280;
 }
 
-.article-navigation a {
-  color: var(--accent);
-  text-decoration: none;
-  transition: opacity 0.2s ease;
-}
-
-.article-navigation a:hover {
-  color: var(--accent);
-  opacity: 0.75;
-  text-decoration: underline;
-}
-
-.article-nav-home {
-  flex-shrink: 0;
-  text-align: center;
-  color: var(--muted);
-}
-
 /* 手机端适配 */
 @media (max-width: 600px) {
   .article-navigation {
@@ -164,4 +146,19 @@ a:hover { text-decoration: underline; }
     flex-basis: 100%;
     padding-top: 8px;
   }
+}
+/* 强制统一文章底部导航主题颜色 */
+.article-navigation a,
+.article-navigation a:visited {
+  color: #55745b !important;
+  text-decoration: none !important;
+}
+
+.article-navigation a:hover {
+  color: #3f6046 !important;
+  text-decoration: underline !important;
+}
+
+.article-navigation .article-nav-home {
+  color: #77796f !important;
 }
